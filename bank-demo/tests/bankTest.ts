@@ -74,3 +74,24 @@ try {
 } catch (_) {
     console.log("Withdraw Scenario 3 passed");
 }
+
+// Tests for checkBalance
+// Scenario 1: Successful Balance Check
+try {
+    const balance = bank.checkBalance("123456");
+    if (balance === 300) {
+        console.log("Check Balance Scenario 1 passed");
+    } else {
+        console.log("Check Balance Scenario 1 failed");
+    }
+} catch (_) {
+    console.log("Check Balance Scenario 1 failed");
+}
+
+// Scenario 2: Failed Balance Check
+try {
+    bank.checkBalance("999999");
+    console.log("Check Balance Scenario 2 failed");
+} catch (_) {
+    console.log("Check Balance Scenario 2 passed");
+}
