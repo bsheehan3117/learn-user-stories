@@ -45,3 +45,32 @@ try {
 } catch (_) {
     console.log("Deposit Scenario 2 passed");
 }
+
+// Tests for withdraw
+// Scenario 1: Successful Withdrawal
+try {
+    const newBalance = bank.withdraw("123456", 200);
+    if (newBalance === 300) {
+        console.log("Withdraw Scenario 1 passed");
+    } else {
+        console.log("Withdraw Scenario 1 failed");
+    }
+} catch (_) {
+    console.log("Withdraw Scenario 1 failed");
+}
+
+// Scenario 2: Failed Withdrawal (Insufficient Balance)
+try {
+    bank.withdraw("123456", 1000);
+    console.log("Withdraw Scenario 2 failed");
+} catch (_) {
+    console.log("Withdraw Scenario 2 passed");
+}
+
+// Scenario 3: Failed Withdrawal (Invalid Account)
+try {
+    bank.withdraw("999999", 200);
+    console.log("Withdraw Scenario 3 failed");
+} catch (_) {
+    console.log("Withdraw Scenario 3 passed");
+}
